@@ -20,7 +20,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="16"
-            TextWrapping="Wrap"><Run FontSize="20" Text="Inventor Content Center Export" /><LineBreak /><Run Text="Autor: Ing. Martin Richter" /><LineBreak /><Run Text="0911 804 260, richter@map.sk" /><LineBreak /><Run Text="M&amp;P spol. s r.o." /><LineBreak /><Run Text="Jánošíkova 24, Žilina" /><LineBreak /><Run Text="www.map.sk" /><LineBreak /><Run /></TextBlock>
+            TextWrapping="Wrap"><Run FontSize="20" Text="Batch Content Center Export 1.0" /><LineBreak /><Run Text="Contact and support:" /> <LineBreak /> <Run Text="apps@map.sk" /></TextBlock>
 
     </Grid>
 </Window>

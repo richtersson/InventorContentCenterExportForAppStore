@@ -39,7 +39,7 @@ namespace InventorContentCenterExport
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "Generovanie súčiastok Obsahového centra Inventoru " + AddInGlobal.AppVersion;
+            this.Title = "Batch Content Center Export " + AddInGlobal.AppVersion;
 
 
         }
@@ -64,7 +64,7 @@ namespace InventorContentCenterExport
             try
             {
                 _oConnection = new ContentCenterConnection();
-                
+                Thread.Sleep(4000);
                 _oConnection.ReadContentCenter(_oConnection.InventorApp.ContentCenter.TreeViewTopNode, _oConnection.Root);
                 //TreeItemViewModel MainNode = new TreeItemViewModel();
                 //MainNode.Children = oConnection.Menuitems;

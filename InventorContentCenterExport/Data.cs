@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,8 @@ namespace InventorContentCenterExport
         {
             
             _menuitems = new ObservableCollection<TreeItemViewModel>();
-            _root = new TreeItemViewModel(null, false) { DisplayName = "Obsahové centrum" };
-            _root.Remarks = "GENEROVANIE ZAČATÉ" + System.Environment.NewLine;
+            _root = new TreeItemViewModel(null, false) { DisplayName = "Content Center" };
+            _root.Remarks = "Exporting..." + System.Environment.NewLine;
             _generatedFileName = "";
             _filesCount = 0;
             // Try to get an active instance of Inventor
@@ -50,7 +51,7 @@ namespace InventorContentCenterExport
             if (inventorApp != null)
             {
                 inventorApp = null;
-                throw new Exception("Vypnite Inventor a spustite program ešte raz.");
+                throw new Exception("Close Inventor and start program again.");
             }
 
             //If not active, create a new Inventor session
@@ -187,7 +188,7 @@ namespace InventorContentCenterExport
             else
             {
 
-                throw new Exception("Na počítači nie je nainštalovaný Autodesk Inventor");
+                throw new Exception("Inventor not installed in the computer.");
             }
             return _InventorApp;
 
@@ -205,7 +206,9 @@ namespace InventorContentCenterExport
                 GenerateFiles(node);
 
             }
-            MessageBox.Show("Vybrané súbory boli úspešne vygenerované.");
+            int numLines = _root.Remarks.Split('\n').Length;
+            _root.Remarks = _root.Remarks + "Export finished." + (numLines-2) + " files were exported.";
+            MessageBox.Show("Selected files were succesfully generated.");
 
            
             //    System.Windows.Threading.Dispatcher.Run();
